@@ -1,0 +1,25 @@
+org: davila7
+app: aws-node
+service: crud-node-dynamodb
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+resources:
+  Resources:
+    TaskTale:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: TaskTable
+        
