@@ -7,6 +7,12 @@ provider:
   name: aws
   runtime: nodejs14.x
   region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamdb:*
+      Resource: 
+        - arn:aws:dynamodb:us-east-1:492640116154:table/productTable
 
 functions:
   hello:
@@ -16,10 +22,25 @@ functions:
           path: /
           method: get
 
+  createProduct:
+    handler: functions/create.createProduct
+    events:
+      - httpApi:
+          path: /product
+          method: post
+
 resources:
   Resources:
-    TaskTale:
+    Table:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: TaskTable
-        
+        TableName: productTable
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
