@@ -1,4 +1,7 @@
-@root = https://7vyy7nnbol.execute-api.us-east-1.amazonaws.com
+## add your root url here 👇
+@root = ""
+## add your product id here 👇
+@id = ""
 
 ### Create Products
 POST {{root}}/products
@@ -6,7 +9,7 @@ content-type: application/json
 accept: application/json
 
 {
-    "name": "banana",
+    "name": "coffee",
     "price": "4"
 }
 
@@ -16,12 +19,12 @@ content-type: application/json
 accept: application/json
 
 ### Get Product
-GET {{root}}/products/fe042ac7-a13c-4786-bbaf-414155f8754e
+GET {{root}}/products/{{id}}
 content-type: application/json
 accept: application/json
 
 ### Update Products
-PUT {{root}}/products/fe042ac7-a13c-4786-bbaf-414155f8754e
+PUT {{root}}/products/{{id}}
 content-type: application/json
 accept: application/json
 
