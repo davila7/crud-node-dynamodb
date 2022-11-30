@@ -5,7 +5,7 @@ const createProduct = async(event) => {
 
   const dynamodb = new AWS.DynamoDB.DocumentClient();
   const { name, price } = JSON.parse(event.body);
-  const createAt = new Date();
+  const createdAt = new Date();
   const id = v4();
   const TABLE_NAME = process.env.DYNAMODB_PRODUCT_TABLE
 
