@@ -1,5 +1,5 @@
 const { v4 } = require('uuid')
-const AWS = requre('aws-sdk')
+const AWS = require('aws-sdk')
 
 const createProduct = async(event) => {
 
@@ -28,6 +28,6 @@ const createProduct = async(event) => {
 
 }
 
-module.exports.createProduct = {
+module.exports = {
   createProduct
 };
