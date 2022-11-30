@@ -33,23 +33,10 @@ custom:
     site: ${param:DATADOG_SITE}
     apiKey: ${param:DATADOG_API_KEY}
 
-functions: ${file(yml/functions)}
+functions: ${file(yml/functions.yml)}
 
 resources:
-  Resources:
-    Table:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:custom.DYNAMODB_PRODUCT_TABLE.${self:custom.stage}}
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+  ${file(yml/dynamodb.yml)}
 plugins:
   - serverless-plugin-datadog
 
