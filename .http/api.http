@@ -1,0 +1,17 @@
+@root = https://iwz9crbbqh.execute-api.us-east-1.amazonaws.com
+
+
+### Get Products
+GET {{root}}
+content-type: application/json
+accept: application/json
+
+### Create Products
+POST {{root}}/product
+content-type: application/json
+accept: application/json
+
+{
+    "name": "Tea",
+    "price": "10"
+}

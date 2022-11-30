@@ -7,12 +7,25 @@ provider:
   name: aws
   runtime: nodejs14.x
   region: us-east-1
+  stage: staging
+  environment:
+      STAGE: ${self:custom.stage}
+      DYNAMODB_PRODUCT_TABLE: ${self:custom.DYNAMODB_PRODUCT_TABLE.${self:custom.stage}}
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamdb:*
       Resource: 
-        - arn:aws:dynamodb:us-east-1:492640116154:table/productTable
+        - arn:aws:dynamodb:${self:provider.region}:${param:DYNAMODB_ARN_ID}:table/${self:custom.DYNAMODB_PRODUCT_TABLE.${self:custom.stage}}
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  DYNAMODB_PRODUCT_TABLE:
+    staging: product-staging-table
+    prod: product-prod-table
+  datadog:
+    site: ${param:DATADOG_SITE}
+    apiKey: ${param:DATADOG_API_KEY}
 
 functions:
   hello:
@@ -34,7 +47,7 @@ resources:
     Table:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: productTable
+        TableName: ${self:custom.DYNAMODB_PRODUCT_TABLE.${self:custom.stage}}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -44,3 +57,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+plugins:
+  - serverless-plugin-datadog
+
+

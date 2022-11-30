@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "aws-sdk": "^2.1264.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "serverless-plugin-datadog": "^5.12.0"
   }
 }
