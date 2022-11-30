@@ -1,10 +1,9 @@
-## add your root url here 👇
-@root = ""
-## add your product id here 👇
+## add your root url here
+@url = ""
 @id = ""
 
 ### Create Products
-POST {{root}}/products
+POST {{url}}/products
 content-type: application/json
 accept: application/json
 
@@ -14,17 +13,17 @@ accept: application/json
 }
 
 ### Get Products
-GET {{root}}/products
+GET {{url}}/products
 content-type: application/json
 accept: application/json
 
 ### Get Product
-GET {{root}}/products/{{id}}
+GET {{url}}/products/{{id}}
 content-type: application/json
 accept: application/json
 
 ### Update Products
-PUT {{root}}/products/{{id}}
+PUT {{url}}/products/{{id}}
 content-type: application/json
 accept: application/json
 
@@ -33,6 +32,6 @@ accept: application/json
 }
 
 ### Delete Product
-DELETE {{root}}/products/b0e1bb91-43cc-45a4-92c2-b6a6ba54be3d
+DELETE {{url}}/products/{{id}}
 content-type: application/json
 accept: application/json
