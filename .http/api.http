@@ -1,5 +1,4 @@
-@root = https://iwz9crbbqh.execute-api.us-east-1.amazonaws.com
-
+@root = https://7vyy7nnbol.execute-api.us-east-1.amazonaws.com
 
 ### Get Products
 GET {{root}}

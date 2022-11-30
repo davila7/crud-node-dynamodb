@@ -3,7 +3,7 @@ const AWS = require('aws-sdk')
 
 const createProduct = async(event) => {
 
-  const dynamodb = new AWS.Dynamodb.DocumentClient();
+  const dynamodb = new AWS.DynamoDB.DocumentClient();
   const { name, price } = JSON.parse(event.body);
   const createAt = new Date();
   const id = v4();
