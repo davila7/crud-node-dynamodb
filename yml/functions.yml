@@ -1,0 +1,34 @@
+createProduct:
+  handler: functions/create_product.createProduct
+  events:
+    - httpApi:
+        path: /products
+        method: post
+
+getProducts:
+  handler: functions/get_products.getProducts
+  events:
+    - httpApi:
+        path: /products
+        method: get
+
+getProduct:
+  handler: functions/get_product.getProduct
+  events:
+    - httpApi:
+        path: /products/{id}
+        method: get
+
+updateProduct:
+  handler: functions/update_product.updateProduct
+  events:
+    - httpApi:
+        path: /products/{id}
+        method: put
+
+deleteProduct:
+  handler: functions/delete_product.deleteProduct
+  events:
+    - httpApi:
+        path: /products/{id}
+        method: delete

@@ -6,8 +6,8 @@ content-type: application/json
 accept: application/json
 
 {
-    "name": "croissant",
-    "price": "6"
+    "name": "banana",
+    "price": "4"
 }
 
 ### Get Products
@@ -16,15 +16,20 @@ content-type: application/json
 accept: application/json
 
 ### Get Product
-GET {{root}}/products/b0e1bb91-43cc-45a4-92c2-b6a6ba54be3d
+GET {{root}}/products/fe042ac7-a13c-4786-bbaf-414155f8754e
 content-type: application/json
 accept: application/json
 
 ### Update Products
-PUT {{root}}/products/b0e1bb91-43cc-45a4-92c2-b6a6ba54be3d
+PUT {{root}}/products/fe042ac7-a13c-4786-bbaf-414155f8754e
 content-type: application/json
 accept: application/json
 
 {
     "sold": true
 }
+
+### Delete Product
+DELETE {{root}}/products/b0e1bb91-43cc-45a4-92c2-b6a6ba54be3d
+content-type: application/json
+accept: application/json
