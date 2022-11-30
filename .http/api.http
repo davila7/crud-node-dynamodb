@@ -1,17 +1,30 @@
 @root = https://7vyy7nnbol.execute-api.us-east-1.amazonaws.com
 
+### Create Products
+POST {{root}}/products
+content-type: application/json
+accept: application/json
+
+{
+    "name": "croissant",
+    "price": "6"
+}
+
 ### Get Products
 GET {{root}}/products
 content-type: application/json
 accept: application/json
 
-### Create Products
-POST {{root}}/product
+### Get Product
+GET {{root}}/products/b0e1bb91-43cc-45a4-92c2-b6a6ba54be3d
+content-type: application/json
+accept: application/json
+
+### Update Products
+PUT {{root}}/products/b0e1bb91-43cc-45a4-92c2-b6a6ba54be3d
 content-type: application/json
 accept: application/json
 
 {
-    "name": "coffee",
-    "price": "15"
+    "sold": true
 }
-

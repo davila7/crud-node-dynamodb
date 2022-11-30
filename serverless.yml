@@ -42,10 +42,10 @@ functions:
           method: get
 
   createProduct:
-    handler: functions/create.createProduct
+    handler: functions/create_product.createProduct
     events:
       - httpApi:
-          path: /product
+          path: /products
           method: post
 
   getProducts:
@@ -54,6 +54,27 @@ functions:
       - httpApi:
           path: /products
           method: get
+
+  getProduct:
+    handler: functions/get_product.getProduct
+    events:
+      - httpApi:
+          path: /products/{id}
+          method: get
+  
+  updateProduct:
+    handler: functions/update_product.updateProduct
+    events:
+      - httpApi:
+          path: /products/{id}
+          method: put
+
+  deleteProduct:
+    handler: functions/delete_product.deleteProduct
+    events:
+      - httpApi:
+          path: /products/{id}
+          method: delete
 
 resources:
   Resources:

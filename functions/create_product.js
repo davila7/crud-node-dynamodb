@@ -13,7 +13,8 @@ const createProduct = async(event) => {
     id,
     name,
     price,
-    createdAt
+    createdAt,
+    sold: false
   }
 
   await dynamodb.put({
@@ -22,7 +23,7 @@ const createProduct = async(event) => {
   }).promise();
 
   return {
-    statusCode: 200,
+    status: 200,
     body: JSON.stringify(newProduct)
   }
 
