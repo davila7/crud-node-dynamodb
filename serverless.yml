@@ -14,11 +14,13 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - "dynamodb:GetItem"
-        - "dynamodb:PutItem"
-        - "dynamodb:UpdateItem"
-        - "dynamodb:DeleteItem"
-        - "dynamodb:ListStreams"
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:ListStreams
       Resource: 
         - arn:aws:dynamodb:${self:provider.region}:${param:DYNAMODB_ARN_ID}:table/${self:custom.DYNAMODB_PRODUCT_TABLE.${self:custom.stage}}
 

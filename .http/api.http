@@ -1,7 +1,7 @@
 @root = https://7vyy7nnbol.execute-api.us-east-1.amazonaws.com
 
 ### Get Products
-GET {{root}}
+GET {{root}}/products
 content-type: application/json
 accept: application/json
 
@@ -11,6 +11,7 @@ content-type: application/json
 accept: application/json
 
 {
-    "name": "Tea",
-    "price": "10"
+    "name": "coffee",
+    "price": "15"
 }
+
